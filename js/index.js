@@ -1,60 +1,52 @@
+document.addEventListener("load", slideCatPokemon());
+// document.addEventListener("load", loadAllPokemon());
+
 const valores = []
-const categorias = []
+let categorias = []
 var arregloPokemon = []
 
 function getTypePokemon() {
   return new Promise((resolve) => {
-    fetch("https://pokeapi.co/api/v2/type")
+    fetch(`${constants.APIURL}/type`)
       .then((response) => response.json())
       .then((data) => {
-        data.results.forEach((element) => {
-          categorias.push(element)
-        })
+          categorias = data.results;
+      
         resolve("Categorias OK")
       })
   })
 }
 
+
+
 function slideCatPokemon() {
-  getTypePokemon().then((response) => {
+  getTypePokemon().then(() => {
     let categoria
     categorias.forEach((element, index) => {
+      const pokemonId = element.url.split("/")[6];
       if (index == 0) {
-        categoria += `<div class="carousel-item active">
-                        <div class="col-md-2">
-                          <div class="card rounded-circle">
-                            <div class="card-img">
-                              <a onclick="localUrlPokemon('${element.url}')" href="typesPokemon.html">
-                                <img src="../svgs/added/pokeball-pokemon-svgrepo-com.svg" class="img-fluid">
-                              </a>
-                              <div style="-webkit-text-stroke: 1.5px #000000" class="card-img-overlays text-white">${element.name}</div>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </div>`
+        active = "active"
+      
       } else {
-        categoria += `<div class="carousel-item">
+        active = ""
+      }
+      categoria += `<div class="carousel-item ${active}">
                         <div class="col-md-2">
                           <div class="card rounded-circle">
                             <div class="card-img">
-                              <a onclick="localUrlPokemon('${element.url}')" href="typesPokemon.html">
+                              <a href="typesPokemon.html?type=${pokemonId}&name=${element.name}">
                                 <img src="../svgs/added/pokeball-pokemon-svgrepo-com.svg" class="img-fluid">
                               </a>
                               <div style="-webkit-text-stroke: 1.5px #000000" class="card-img-overlays text-white">${element.name}</div>
                             </div>
-                            
                           </div>
                         </div>
                       </div>`
-      }
     })
     document.getElementById("carou").innerHTML = categoria;
     flipCarrousel()
   })
 }
-
-slideCatPokemon()
 
 function flipCarrousel() {
   let myCarousel = document.querySelectorAll(
@@ -80,14 +72,14 @@ function localUrlPokemon(urlType) {
 
 // Buscador
 
-function loadAllPokemon() {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
-  .then((response) => response.json())
-  .then(data => {
-    console.log(data.results)
-    arregloPokemon = Object.values(data.results) 
-  })
-}
+// function loadAllPokemon() {
+//   fetch()
+//   .then((response) => response.json())
+//   .then(data => {
+//     console.log(data.results)
+//     arregloPokemon = Object.values(data.results) 
+//   })
+// }
 
 function autoCompletePokemon() {
   let textoBuscar = document.getElementById("txtBuscar").value
