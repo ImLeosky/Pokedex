@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Karmilla Bold';
+    src: url(/fuente/KarmillaBold.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Pokemon';
+    src: url(/fonts/PokemonSolid.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+#cajita-grande {
+    background-image: url("../img/wallpapersden.com_pokemon-pikachu-art_1920x1080.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#pokedex-title {
+    font-family: 'Pokemon';
+    color: yellow;
+    font-size: 150px;
+    margin-bottom: 100px;
+    margin-top: -100px;
+    -webkit-text-stroke: 2px #000000;
+}
+
+.input {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border-color: none;
+    border-style: solid 1px #000000;
+    width: 30vw;
+    height: 5vh;
+    text-align: center;
+    font-weight: bold;
+}
+
+input:focus{
+    outline: none;
+}
+
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    #featureContainer .carousel-inner .carousel-item>div {
+        display: none;
+    }
+
+    #featureContainer .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+}
+
+#featureContainer .carousel-inner .carousel-item.active,
+#featureContainer .carousel-inner .carousel-item-next,
+#featureContainer .carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    #featureContainer .carousel-inner .carousel-item-end.active,
+    #featureContainer .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    #featureContainer .carousel-inner .carousel-item-start.active,
+    #featureContainer .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+
+    #featureContainer .card img {
+        width: 100%;
+        height: auto;
+    }
+
+    #featureContainer .carousel-item {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 767px) {
+    #featureContainer .card img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+#featureContainer .carousel-inner .carousel-item-end,
+#featureContainer .carousel-inner .carousel-item-start {
+    transform: translateX(0);
+}
+
+#featureContainer .card {
+    border: 0;
+}
+
+#featureContainer .card {
+    position: relative;
+}
+
+#featureContainer .card {}
+
+.card-img-overlays {
+    position: absolute;
+    bottom: 5%;
+    font-size: xx-large;
+    left: auto;
+    right: auto;
+}
+
+#featureContainer a {
+    text-decoration: none;
+}
+
+#featureContainer .indicator {
+    border: 1px solid rgb(202, 202, 202);
+    padding: 3px 6px 3px 6px;
+}
+
+#featureContainer .indicator:hover {
+    background-color: blue;
+    border: 1px solid blue;
+    transition: 100ms;
+}
+
+#featureContainer .indicator:hover {
+    color: white;
+    transition: 100ms;
+}
+
+#featureContainer .indicator {
+    color: lightgray;
+}
+
+#featureContainer .float-end {
+    padding-top: 10px;
+}
